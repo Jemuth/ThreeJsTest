@@ -1,6 +1,7 @@
 // Find the latest version by visiting https://cdn.skypack.dev/three.
       
 import * as THREE from 'https://cdn.skypack.dev/three@0.126.1/build/three.module.js';
+import { OrbitControls } from 'https://unpkg.com/three@0.126.1/examples/jsm/controls/OrbitControls.js'
 
 // Definiendo camara, ventana de render y escena 
 const scene = new THREE.Scene();
@@ -14,6 +15,9 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(innerWidth, innerHeight); // Recordar remover el margen por defecto del navegador
 renderer.setPixelRatio(devicePixelRatio);
 document.body.appendChild(renderer.domElement); // Adjuntando la ventana de renderer al documento
+
+new OrbitControls(camera, renderer.domElement) // Añadiendo Orbit Control
+camera.position.z = 50
 
 // Definiendo geometria y material a incorporar
 
